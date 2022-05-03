@@ -2,6 +2,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO, filename='log.log', filemode="w",
                     format="%(asctime)s - %(levelname)s - %(message)s")
+# level: log level, current level and above are included in the log
 # filename: file to track the logs; could use time as a part of the file name
 # filemode: w: create a new file or overwrite the file if exist
 # format: format for the logs: time, level, message; https://docs.python.org/3/library/logging.html#logrecord-attributes
