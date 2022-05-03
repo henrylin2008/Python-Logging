@@ -12,8 +12,21 @@ logging.basicConfig(level=logging.INFO, filename='log.log', filemode="w",
 # logging.error('error')
 # logging.critical('critical')    # most important
 
-try:
-    1 / 0
-except ZeroDivisionError as e:
-    logging.exception("ZeroDivisionError")  # logs the exception
-    # logging.error("ZeroDivisionError", exc_info=True)
+# exception log
+# try:
+#     1 / 0
+# except ZeroDivisionError as e:
+#     logging.exception("ZeroDivisionError")  # logs the exception
+#     # logging.error("ZeroDivisionError", exc_info=True)
+
+
+# Custom Logs
+logger = logging.getLogger(__name__)      # retrieve logger with the name or create it for you
+# Handles and formatters
+handler = logging.FileHandler('test.log')   # FileHandler: name of the file
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")   # custom format of the logs
+handler.setFormatter(formatter)         # set the formatter of the handler
+
+logger.addHandler(handler)
+
+logger.info("test the custom logger")
